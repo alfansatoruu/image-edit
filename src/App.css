@@ -2,163 +2,41 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
 }
-
 
 .kontainer-utama {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1b26 0%, #232433 100%);
+  background: linear-gradient(135deg, #1f1f1f 0%, #2d2d2d 100%);
   padding: 20px;
-  gap: 24px;
-  color: #ffffff;
+  gap: 20px;
 }
 
-
 .area-gambar {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  background: rgba(255, 255, 255, 0.05);
+  align-items: center;
+  gap: 20px;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .kanvas-gambar {
+  max-width: 800px;
   width: 100%;
   height: auto;
-  background: #2a2b36;
+  background: #2a2a2a;
   border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.kanvas-gambar:hover {
-  transform: scale(1.01);
-}
-
-
-.panel-kontrol {
-  width: 320px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 24px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-
-.bagian {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.bagian h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffff;
-  padding-bottom: 8px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 8px;
-  text-transform: uppercase;
-
-}
-
-
-.grid-buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-}
-
-.grid-buttons-rotate {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-
-
-button {
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 6px;
-  color: #ffffff;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-.kumpulan-tombol {
-  height: 110px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-}
-
-.tombol-batal {
-  background: linear-gradient(135deg, #ff5555 0%, #ff3333 100%);
-  color: white;
-  font-weight: 600;
-  margin-top: auto;
-  width: 270px;
-  text-transform: uppercase;
-
-  border: none;
-}
-
-.tombol-batal:hover {
-  background: linear-gradient(135deg, #ff3333 0%, #ff2222 100%);
-}
-
-
-.tombol-download {
-  background: linear-gradient(135deg, #41c999 0%, #058a88 100%);
-  color: white;
-  font-weight: 600;
-  margin-top: auto;
-  width: 270px;
-  text-transform: uppercase;
-
-  border: none;
-}
-
-.tombol-download:hover {
-  background: linear-gradient(135deg, #4bacfb 0%, #085675 100%);
-}
-
-.tombol-download:active {
-  transform: translateY(1px);
-}
-
-
-input[type="file"] {
+.file-input {
   width: 100%;
+  max-width: 800px;
   padding: 12px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -167,56 +45,113 @@ input[type="file"] {
   cursor: pointer;
 }
 
-input[type="file"]::-webkit-file-upload-button {
-  background: rgba(255, 255, 255, 0.1);
+.file-input::-webkit-file-upload-button {
+  background: #4a90e2;
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
   color: white;
   cursor: pointer;
   margin-right: 12px;
+  transition: background-color 0.3s;
+}
+
+.file-input::-webkit-file-upload-button:hover {
+  background: #357abd;
+}
+
+.panel-kontrol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bagian {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bagian h3 {
+  font-size: 18px;
+  color: #ffffff;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.grid-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.grid-buttons button {
+  padding: 12px 20px;
+  background: #1aa5e071;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-input[type="file"]::-webkit-file-upload-button:hover {
-  background: rgba(255, 255, 255, 0.2);
+.grid-buttons button:hover {
+  background: #357abd;
+  transform: translateY(-2px);
 }
 
-
-.bagian:hover h3 {
-  color: #7f7fd5;
+.kumpulan-tombol {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: auto;
 }
 
-
-@keyframes loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+.tombol-batal {
+  padding: 12px 24px;
+  background: #e74c3c;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  min-width: 150px;
 }
 
-
-@media (max-width: 768px) {
-  .kontainer-utama {
-    flex-direction: column;
-  }
-
-  .panel-kontrol {
-    width: 100%;
-  }
-
-  .grid-buttons {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.tombol-batal:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
 }
 
+.tombol-download {
+  padding: 12px 24px;
+  background: #27ae60;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  min-width: 150px;
+}
 
+.tombol-download:hover {
+  background: #219a52;
+  transform: translateY(-2px);
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -232,22 +167,97 @@ input[type="file"]::-webkit-file-upload-button:hover {
   background: rgba(255, 255, 255, 0.3);
 }
 
-
+/* Focus states */
 button:focus,
-input[type="file"]:focus {
+input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(127, 127, 213, 0.5);
-}
-.reset-button {
-  padding: 10px 20px;
-  background-color: #f59e0b;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.5);
 }
 
-.reset-button:hover {
-  background-color: #d97706;
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .kontainer-utama {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .area-gambar {
+    padding: 15px;
+  }
+
+  .kanvas-gambar {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .file-input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .panel-kontrol {
+    padding: 15px;
+  }
+
+  .bagian h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .grid-buttons {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .grid-buttons button {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .kumpulan-tombol {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .tombol-batal,
+  .tombol-download {
+    width: 100%;
+    min-width: unset;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Adjust spacing for mobile */
+  .area-gambar > * {
+    margin-bottom: 10px;
+  }
+
+  .area-gambar > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .kontainer-utama {
+    padding: 8px;
+  }
+
+  .area-gambar,
+  .panel-kontrol {
+    padding: 12px;
+  }
+
+  .bagian h3 {
+    font-size: 15px;
+  }
+
+  .grid-buttons button,
+  .tombol-batal,
+  .tombol-download {
+    font-size: 13px;
+    padding: 10px;
+  }
 }
