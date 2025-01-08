@@ -238,3 +238,16 @@ input[type="file"]:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(127, 127, 213, 0.5);
 }
+.reset-button {
+  padding: 10px 20px;
+  background-color: #f59e0b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+  background-color: #d97706;
+}

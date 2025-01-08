@@ -1,6 +1,6 @@
 import './App.css'
 import React, { useState, useRef } from 'react';
-import { prosesGambar } from './ImageProcessingFunctions';
+import { prosesGambar, resetUsedFunctions } from './ImageProcessingFunctions';
 
 const PengolahanGambar = () => {
   const [setGambarUrl] = useState(null);
@@ -37,6 +37,21 @@ const PengolahanGambar = () => {
     link.click();
   };
 
+  const handleCompleteReset = () => {
+    // Reset gambar ke kondisi awal
+    if (gambarAsli) {
+      const ctx = kanvasRef.current.getContext('2d');
+      ctx.clearRect(0, 0, kanvasRef.current.width, kanvasRef.current.height);
+      ctx.drawImage(gambarAsli, 0, 0);
+    }
+    
+    // Reset filter yang sudah digunakan
+    resetUsedFunctions();
+    
+    // Tampilkan pesan konfirmasi
+    alert('Gambar telah dikembalikan ke kondisi awal dan filter telah direset.');
+  };
+
   return (
     <div className="kontainer-utama">
       <div className="area-gambar">
@@ -48,20 +63,11 @@ const PengolahanGambar = () => {
         <div className="bagian">
           <h3>List of Processing</h3>
           <div className="grid-buttons">
-            <button onClick={() => prosesGambar('negatif', kanvasRef)}>Image Negative</button>
             <button onClick={() => prosesGambar('threshold', kanvasRef)}>Image Threshold</button>
             <button onClick={() => prosesGambar('kecerahan', kanvasRef)}>Image Brightness</button>
-            <button onClick={() => prosesGambar('logarithmik', kanvasRef)}>Image Logarithmic</button>
-            <button onClick={() => prosesGambar('meanFilter', kanvasRef)}>Mean Filter</button>
-            <button onClick={() => prosesGambar('medianFilter', kanvasRef)}>Median Filter</button>
-            <button onClick={() => prosesGambar('gaussianFilter', kanvasRef)}>Gaussian Filter</button>
             <button onClick={() => prosesGambar('erosi', kanvasRef)}>Erosi</button>
             <button onClick={() => prosesGambar('dilasi', kanvasRef)}>Dilasi</button>
-            <button onClick={() => prosesGambar('opening', kanvasRef)}>Opening</button>
-            <button onClick={() => prosesGambar('closing', kanvasRef)}>Closing</button>
-            <button onClick={() => prosesGambar('sharpening', kanvasRef)}>Sharpening</button>
             <button onClick={() => prosesGambar('grayscale', kanvasRef)}>RGB to Grayscale</button>
-            <button onClick={() => prosesGambar('hsv', kanvasRef)}>RGB to HSV</button>
           </div>
         </div>
 
@@ -74,17 +80,11 @@ const PengolahanGambar = () => {
         </div>
 
         <div className='kumpulan-tombol'>
-          <button
+          <button 
+            onClick={handleCompleteReset}
             className="tombol-batal"
-            onClick={() => {
-              if (gambarAsli) {
-                const ctx = kanvasRef.current.getContext('2d');
-                ctx.clearRect(0, 0, kanvasRef.current.width, kanvasRef.current.height);
-                ctx.drawImage(gambarAsli, 0, 0);
-              }
-            }}
           >
-            CANCEL
+            Reset All
           </button>
           <button
             onClick={handleDownload}
