@@ -71,14 +71,6 @@ const PengolahanGambar = () => {
           </div>
         </div>
 
-        <div className="bagian">
-          <h3>Edge Detection</h3>
-          <div className="grid-buttons">
-            <button onClick={() => prosesGambar('sobel', kanvasRef)}>Sobel</button>
-            <button onClick={() => prosesGambar('laplacian', kanvasRef)}>Laplacian</button>
-          </div>
-        </div>
-
         <div className='kumpulan-tombol'>
           <button 
             onClick={handleCompleteReset}
